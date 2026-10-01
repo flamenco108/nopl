@@ -39,7 +39,7 @@ Domyślna specyfikacja ortograficzna dla systemu **NOPL**, służąca do konwers
 | **ł** | `ll` | *iłołupki* $\rightarrow$ **illollupki** |
 | **ń** | `nj` | *bańka* $\rightarrow$ **banjka** |
 | **ó** | `oo` | *ogórek* $\rightarrow$ **ogoorek** |
-| **ś** | `sj` | *śpiewaczka* $\rightarrow$ **sjpievaczka** |
+| **ś** | `sj` | *śpiewaczka* $\rightarrow$ **sjpiewaczka** |
 | **ź** | `zj` | *źrebię* $\rightarrow$ **zjrebiee** |
 | **ż** | `zh` | *żagiel* $\rightarrow$ **zhagiel** |
 
