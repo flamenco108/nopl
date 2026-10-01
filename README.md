@@ -6,9 +6,6 @@ Przy pomocy tej ortografii możemy pisać dowolny tekst po polsku, zachować czy
 ale nie musimy używać znaków spoza tablicy ASCII. A to oznacza, że możemy używać 
 dowolnej klawiatury, a przede wszystkim najpopularniejszej. I o to mi chodziło.
 
-### Opis ortografii
-
-Oto czytelny opis ortografii w formacie GitHub Markdown, przygotowany na podstawie dostarczonej konfiguracji YAML oraz dołączonych komentarzy:
 
 ---
 
