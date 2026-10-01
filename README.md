@@ -12,13 +12,13 @@ Oto czytelny opis ortografii w formacie GitHub Markdown, przygotowany na podstaw
 
 ---
 
-# Nowa Ortografia PoLska ASCII (Wariant zero)
+## Nowa Ortografia PoLska ASCII (Wariant zero)
 
 Domyślna specyfikacja ortograficzna dla systemu **NOPL**, służąca do konwersji tekstu z tradycyjnej ortografii polskiej na wariant zgodny z podstawowym alfabetem ASCII (bez polskich znaków diakrytycznych).
 
 ---
 
-## 🛠️ Informacje Techniczne
+### 🛠️ Informacje Techniczne
 
 | Parametr | Wartość |
 | --- | --- |
@@ -30,9 +30,9 @@ Domyślna specyfikacja ortograficzna dla systemu **NOPL**, służąca do konwers
 
 ---
 
-## 🔤 Zasady Konwersji (Rules)
+### 🔤 Zasady Konwersji (Rules)
 
-### 1. Polskie litery diakrytyczne (Samogłoski i Spółgłoski)
+#### 1. Polskie litery diakrytyczne (Samogłoski i Spółgłoski)
 
 | Litera PL | Zapis NOPL | Przykład konwersji |
 | --- | --- | --- |
@@ -48,7 +48,7 @@ Domyślna specyfikacja ortograficzna dla systemu **NOPL**, służąca do konwers
 
 ---
 
-### 2. Dwuznaki, Trójznaki i Czwórznaki
+#### 2. Dwuznaki, Trójznaki i Czwórznaki
 
 | Wzorce PL | Zapis NOPL | Uwagi / Przykłady |
 | --- | --- | --- |
@@ -59,7 +59,7 @@ Domyślna specyfikacja ortograficzna dla systemu **NOPL**, służąca do konwers
 
 ---
 
-## 🧩 Reguły Wyrażeń Regularnych (Regex Patterns)
+### 🧩 Reguły Wyrażeń Regularnych (Regex Patterns)
 
 Wyrażenia regularne mają wyższy priorytet nad standardowymi regułami słownikowymi, zapobiegając błędnemu rozbijaniu złożeń i rdzeni wyrazowych:
 
@@ -78,7 +78,7 @@ regex_patterns:
 
 ---
 
-## 💡 Omówienie Zmiękczania i Jotowania
+### 💡 Omówienie Zmiękczania i Jotowania
 
 Wariacja ta zachowuje analogię do oryginalnej polskiej fonetyki i ortografii:
 
@@ -90,20 +90,20 @@ Aby wprowadzać jak najmniej zmian w tekście, bezpośredniej podmianie podlegaj
 
 
 
-### nopl - skrypt tłumaczący
+## nopl - skrypt tłumaczący
 
-## Skrypt `nopl.py` — Silnik Transkrypcji Ortograficznej
+### Skrypt `nopl.py` — Silnik Transkrypcji Ortograficznej
 
 `nopl.py` to bezzależnościowy skrypt Python służący do automatycznej konwersji tekstów z tradycyjnej polskiej ortografii (PL) na alternatywne warianty zapisu bez diakrytyków (NOPL) oraz do wykonywania dwukierunkowej translacji powrotnej (NOPL → PL)[cite: 17].
 
-### Kluczowe funkcjonalności
+#### Kluczowe funkcjonalności
 
 * **Obsługa wariantów ortografii z YAML:** Ładuje definicje wariantów z katalogu `nopl_config/` (oraz wbudowaną domyślną konfigurację)[cite: 17].
 * **Jednoprzebiegowy silnik reguł (Master-Regex):** Łączy zaawansowane reguły wyrażeń regularnych (`regex_patterns`) ze słownikiem zamian prostych (`rules`), gwarantując priorytet wyjątkom phonotaktycznym[cite: 17].
 * **Pamięć powrotna (Cache kolizji):** Podczas konwersji z flagą `-r` tworzy pliki w katalogu `nopl_cache/`, zapisując słowa stanowiące dwuznaczności, co gwarantuje 100% bezstratną rekonstrukcję oryginału[cite: 17].
 * **Metadane w nagłówkach:** Automatycznie wstawia oraz odczytuje nagłówki YAML (np. `nopl_variant: zero`) w przetwarzanych plikach, ułatwiając ich automatyczne odkodowanie[cite: 17].
 
-### Szybki start (Przykłady użycia)
+#### Szybki start (Przykłady użycia)
 
 ```bash
 # 1. Konwersja pliku domyślnym wariantem (-a)
@@ -121,6 +121,7 @@ Aby wprowadzać jak najmniej zmian w tekście, bezpośredniej podmianie podlegaj
 # 5. Wyświetlenie listy dostępnych ortografii
 ./nopl.py --list
 
+```
 
 ## Jak to się stało
 
