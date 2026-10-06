@@ -1,0 +1,100 @@
+# Pełna, czytelna nazwa wariantu wyświetlana w interfejsie i pomocy
+name: "Uproszczona ASCII anglicyzowana"
+
+# Uproszczona ortografia ASCII z odchyłem angielskim - odchył służy do stworzenia 
+# możliwie konsekwentnej ortografii o "międzynarodowym" smaku. Nie uważam jednak,
+# aby to była najlepsza ścieżka. Do przećwiczenia są inne podejścia.
+
+# Unikalny identyfikator systemowy używany w nagłówkach plików i nazwach cache
+id: "aupl"
+
+# Lista przełączników CLI przypisanych do tej ortografii
+flag:
+  - "-b"
+  - "--aupl"
+
+# Przyrostek dodawany do nazwy pliku po konwersji
+file_ext: ".aupl"
+
+# Zbiór samogłosek
+vowels: "aeiouy"
+
+description: "Uproszczona ASCII z odchyłem angielskim (-b, --aupl) (ą : aa, cz : ch, ch/h : h)"
+
+rules:
+#  a: "*"
+  ą: "aa" # wielbłąd -> vielbwaad
+#  b: "*"
+#  c: "*"
+  ć: "cj" # ćwiczenie -> cjviczenie
+#  d: "*"
+#  e: "*"
+  ę: "ee" # potęga -> poteega
+#  f: "*"
+#  g: "*"
+  h: "x" # herbata -> xerbata
+#  i: "*"
+#  j: "*"
+#  k: "*"
+#  l: "*"
+  ł: "w" # iłołupki -> iwowupki
+#  m: "*"
+#  n: "*"
+  ń: "nj" # bańka -> banjka
+#  o: "*"
+  ó: "oo" # ogórek -> ogoorek
+#  p: "*"
+#  r: "*"
+#  s: "*"
+  ś: "sj" # śpiewaczka -> sjpievaczka
+#  t: "*"
+#  u: "*"
+  w: "v" # awantura -> avantura
+#  y: "*"
+#  z: "*"
+  ź: "zj" # źrebię -> zjrebiee
+  ż: "zh" # żagiel -> zhagiel
+## dwuznaki
+#  zi: "*"
+#  ci: "*"
+  ch: "h" # chucherko -> huherko
+  cz: "ch" # czeczota -> chechota
+  dz: "dz" # dzyń -> dzynj
+  dź: "dj" # dźwięk -> djvieek
+  dż: "dh" # dżdżownica -> dhdhovnica
+  rz: "rh" # rzeka -> rheka
+  sz: "sh" # szyna -> shyna
+  di: "dj" # diereza -> djereza
+  cj: "cj" # kolacja -> kolacja
+### trójznaki
+  dzi: "di" # dzik -> dik
+#### czwórznaki
+  szcz: "shch"
+  ść: "sjcj"
+
+regex_patterns:
+  to_target: # tłumaczenie pl -> nopl
+#    - pattern: '\b(na|nad|nie|od|pod|prze|przed|z|za)(r)'
+#      replace: '\1#r'
+#    - pattern: '([aeiouy])s\b'
+#      replace: '\1z'
+    - pattern: 'marz([lłn])'
+      replace: '\g<0>'
+  from_target: # tłumaczenie nopl -> pl
+#    - pattern: '#r'
+#      replace: 'r'
+    - pattern: 'marz([lwn])'
+      replace: '\g<0>'
+
+#     C) OBJAŚNIENIE SYMROLI REGEX UŻYTYCH W WARUNKACH:
+# • \b : Granica słowa (początek lub koniec wyrazu).
+#  Przykłady: '\bnie' dopasuje 'niebo', ale nie 'lsnienie'.
+#      's\b' dopasuje 's' na końcu wyrazu.
+# • ( ... )   : Grupa przechwytująca (zapamiętuje odnaleziony fragment).
+# • |  : Alternatywa ('LUB'). Przykładowo: '(na|nad|pod)' szuka 'na' LUB 'nad' LUB 'pod'.
+# • [ ... ]   : Klasa znaków (dowolny pojedynczy znak z podanego zbioru).
+#  Przykładowo: '[aeiouy]' oznacza dokładnie jedną samogłoskę.
+# • \1, \2    : Odwołanie wsteczne (Backreference) w polu 'replace'.
+# • \g<0> : (w replace) jeśli widzisz dokładnie to co w pattern, pozostaw to bez zmian
+#  Wstawia w wynikowym tekście dokładnie ten ciąg znaków,
+#  który został złapany przez odpowiednią grupę w nawiasach.

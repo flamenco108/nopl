@@ -45,7 +45,7 @@ rules:
   ą: "aa" # sąsiad -> saasiad
 #  b: "*"
 #  c: "*"
-  ć: "cj" # ćwiczenie -> cjviczenie
+  ć: "cj" # ćwiczenie -> cjwiczenie
 #  d: "*"
 #  e: "*"
   ę: "ee" # potęga -> poteega
@@ -65,7 +65,7 @@ rules:
 #  p: "*"
 #  r: "*"
 #  s: "*"
-  ś: "sj" # śpiewaczka -> sjpievaczka
+  ś: "sj" # śpiewaczka -> sjpiewaczka
 #  t: "*"
 #  u: "*"
 #  w: "*"
@@ -100,12 +100,12 @@ regex_patterns:
 #    - pattern: '([aeiouy])s\b'
 #      replace: '\1z'
     - pattern: 'marz([lłn])'
-      replace: '\\g<0>'
+      replace: '\g<0>'
   from_target: # tłumaczenie nopl -> pl
 #    - pattern: '#r'
 #      replace: 'r'
     - pattern: 'marz([lłn])'
-      replace: '\\g<0>'
+      replace: '\g<0>'
 
 ## Omówienie zmiękczania i jotowania
 # Z podobną niekonsekwencją jak w oryginalnej polskiej ortografii mamy 
