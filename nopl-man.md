@@ -2,17 +2,6 @@
 
 Skrypt `nopl.py` jest uniwersalnym, bezzależnościowym silnikiem służącym do transkrypcji tekstów z tradycyjnej ortografii polskiej (PL) na alternatywne warianty zapisu (np. bez znaków diakrytycznych NOPL) oraz do wykonywania automatycznej translacji powrotnej (NOPL $\rightarrow$ PL).
 
----
-
-## 📋 Spis treści
-
-1. [Wymagania i instalacja](https://www.google.com/search?q=%23-wymagania-i-instalacja)
-2. [Szybki start (Ściągawka)](https://www.google.com/search?q=%23-szybki-start-%C5%9Bci%C4%85gawka)
-3. [Tryby pracy i składnia CLI](https://www.google.com/search?q=%23-tryby-pracy-i-sk%C5%82adnia-cli)
-4. [Mechanizm pamięci powrotnej (Cache)](https://www.google.com/search?q=%23-mechanizm-pami%C4%99ci-powrotnej-cache)
-5. [Tworzenie i struktura plików konfiguracji (YAML)](https://www.google.com/search?q=%23-tworzenie-i-struktura-plik%C3%B3w-konfiguracji-yaml)
-6. [Architektura silnika transkrypcji](https://www.google.com/search?q=%23-architektura-silnika-transkrypcji)
-7. [Kody błędów (Exit Codes)](https://www.google.com/search?q=%23-kody-b%C5%82%C4%99d%C3%B3w-exit-codes)
 
 ---
 
