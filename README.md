@@ -33,7 +33,7 @@
 
 ```
 
-[Więcej szczegółów użytkowania w pliku nopl-man.md](nopl.man.md)
+[Więcej szczegółów użytkowania w pliku nopl-man.md](nopl_man.md)
 
 
 ## Ortografia ASCII dla języka polskiego
