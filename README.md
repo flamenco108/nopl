@@ -122,6 +122,105 @@ Aby wprowadzać jak najmniej zmian w tekście, bezpośredniej podmianie podlegaj
 
 
 
+---
+
+## Uproszczona ortografia ASCII anglicyzowana (Wariant aupl)
+
+Uproszczona ortografia ASCII z odchyłem angielskim służąca do stworzenia możliwie konsekwentnej ortografii o "międzynarodowym" brzmieniu i zapisie.
+
+---
+
+### 🛠️ Informacje Techniczne
+
+| Parametr | Wartość |
+| --- | --- |
+| **Nazwa wariantu** | Uproszczona ASCII anglicyzowana |
+| **Identyfikator (ID)** | `aupl` |
+| **Przełączniki CLI** | `-b`, `--aupl` |
+| **Rozszerzenie pliku** | `.aupl` |
+| **Opis** | Uproszczona ASCII z odchyłem angielskim (-b, --aupl) (ą : aa, cz : ch, ch/h : h) |
+
+---
+
+### 🔤 Zasady Konwersji (Rules)
+
+#### 1. Polskie litery diakrytyczne oraz znaki zastępcze
+
+| Litera PL | Zapis NOPL | Przykład konwersji |
+| --- | --- | --- |
+| **ą** | `aa` | *wielbłąd* → **vielbwaad** |
+| **ć** | `cj` | *ćwiczenie* → **cjviczenie** |
+| **ę** | `ee` | *potęga* → **poteega** |
+| **h** | `x` | *herbata* → **xerbata** |
+| **ł** | `w` | *iłołupki* → **iwowupki** |
+| **ń** | `nj` | *bańka* → **banjka** |
+| **ó** | `oo` | *ogórek* → **ogoorek** |
+| **ś** | `sj` | *śpiewaczka* → **sjpievaczka** |
+| **w** | `v` | *awantura* → **avantura** |
+| **ź** | `zj` | *źrebię* → **zjrebiee** |
+| **ż** | `zh` | *żagiel* → **zhagiel** |
+
+---
+
+#### 2. Dwuznaki, Trójznaki i Czwórznaki (Styl Anglicyzowany)
+
+| Wzorce PL | Zapis NOPL | Przykład konwersji / Uwagi |
+| --- | --- | --- |
+| **ch** | `h` | *chucherko* → **huherko** |
+| **cz** | `ch` | *czeczota* → **chechota** |
+| **dz** | `dz` | *dzyń* → **dzynj** |
+| **dź** | `dj` | *dźwięk* → **djvieek** |
+| **dż** | `dh` | *dżdżownica* → **dhdhovnica** |
+| **rz** | `rh` | *rzeka* → **rheka** |
+| **sz** | `sh` | *szyna* → **shyna** |
+| **di** | `dj` | *diereza* → **djereza** |
+| **cj** | `cj` | *kolacja* → **kolacja** |
+| **dzi** | `di` | *dzik* → **dik** |
+| **szcz** | `shch` | połączenie `sz` (`sh`) + `cz` (`ch`) |
+| **ść** | `sjcj` | połączenie `ś` (`sj`) + `ć` (`cj`) |
+
+---
+
+### 🧩 Reguły Wyrażeń Regularnych (Regex Patterns)
+
+Wariant ten wykorzystuje instrukcje `regex_patterns` do chronienia rdzeni słów przed niepożądanymi przekształceniami:
+
+```yaml
+regex_patterns:
+  to_target:
+    - pattern: 'marz([lłn])'
+      replace: '\g<0>'
+  from_target:
+    - pattern: 'marz([lwn])'
+      replace: '\g<0>'
+
+```
+
+* **Zastosowanie:** Zabezpieczenie rdzenia czasownikowego *marz-* (np. *marzli*, *zmarzną*, *zamarzł*) przed błędną zamianą `rz` na `rh`.
+
+---
+
+### 💡 Cechy Charakterystyczne Wariantu
+
+* **Zapis głosek szumiących w stylu angielskim:** Zamiana `sz` → `sh`, `cz` → `ch`, `rz` → `rh` nadaje tekstowi międzynarodowy wygląd nawiązujący do transkrypcji anglosaskiej.
+* **Uproszczenie zapisu `ch` i `h`:** Połączenie obu historycznych zapisów w jednolite `h` (oraz `x` dla samodzielnej litery `h`).
+* **Kompaktowe zmiękczenia:** Wykorzystanie litery `w` dla tradycyjnej litery `ł` oraz `v` dla `w`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Jak to się stało
 
