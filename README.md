@@ -7,6 +7,8 @@ ale nie musimy używać znaków spoza tablicy ASCII. A to oznacza, że możemy u
 dowolnej klawiatury, a przede wszystkim najpopularniejszej. I o to mi chodziło.
 
 
+[toc]
+
 ---
 
 ## Nowa Ortografia PoLska ASCII (Wariant zero)
