@@ -1,13 +1,46 @@
 # nopl - Nowa Ortografia PoLska - plus narzędzia
 
+## nopl - skrypt tłumaczący pomiędzy ortografiami
+
+### Skrypt `nopl.py` — Silnik Transkrypcji Ortograficznej
+
+`nopl.py` to skrypt Python służący do automatycznej konwersji tekstów z tradycyjnej polskiej ortografii (PL) na alternatywne warianty zapisu bez diakrytyków (NOPL) oraz do wykonywania dwukierunkowej translacji powrotnej (NOPL → PL).
+
+#### Kluczowe funkcjonalności
+
+* **Obsługa wariantów ortografii z YAML:** Ładuje definicje wariantów z katalogu `nopl_config/` (oraz wbudowaną domyślną konfigurację).
+* **Jednoprzebiegowy silnik reguł (Master-Regex):** Łączy zaawansowane reguły wyrażeń regularnych (`regex_patterns`) ze słownikiem zamian prostych (`rules`), gwarantując priorytet wyjątkom phonotaktycznym.
+* **Pamięć powrotna (Cache kolizji):** Podczas konwersji z flagą `-r` tworzy pliki w katalogu `nopl_cache/`, zapisując słowa stanowiące dwuznaczności, co gwarantuje 100% bezstratną rekonstrukcję oryginału.
+* **Metadane w nagłówkach:** Automatycznie wstawia oraz odczytuje nagłówki YAML (np. `nopl_variant: zero`) w przetwarzanych plikach, ułatwiając ich automatyczne odkodowanie.
+
+#### Szybki start (Przykłady użycia)
+
+```bash
+# 1. Konwersja pliku domyślnym wariantem (-a)
+./nopl.py plik.txt
+
+# 2. Konwersja z wygenerowaniem pamięci powrotnej (cache kolizji)
+./nopl.py -a -r plik.txt
+
+# 3. Konwersja wybranym wariantem (np. -b / --aupl)
+./nopl.py -b plik.txt
+
+# 4. Automatyczna translacja powrotna z NOPL na PL
+./nopl.py -r plik.zero.txt
+
+# 5. Wyświetlenie listy dostępnych ortografii
+./nopl.py --list
+
+```
+
+[Więcej szczegółów użytkowania w pliku nopl-man.md](nopl.man.md)
+
+
 ## Ortografia ASCII dla języka polskiego
 
 Przy pomocy tej ortografii możemy pisać dowolny tekst po polsku, zachować czytelność,
 ale nie musimy używać znaków spoza tablicy ASCII. A to oznacza, że możemy używać 
 dowolnej klawiatury, a przede wszystkim najpopularniejszej. I o to mi chodziło.
-
-
-[toc]
 
 ---
 
@@ -89,38 +122,6 @@ Aby wprowadzać jak najmniej zmian w tekście, bezpośredniej podmianie podlegaj
 
 
 
-## nopl - skrypt tłumaczący
-
-### Skrypt `nopl.py` — Silnik Transkrypcji Ortograficznej
-
-`nopl.py` to bezzależnościowy skrypt Python służący do automatycznej konwersji tekstów z tradycyjnej polskiej ortografii (PL) na alternatywne warianty zapisu bez diakrytyków (NOPL) oraz do wykonywania dwukierunkowej translacji powrotnej (NOPL → PL)[cite: 17].
-
-#### Kluczowe funkcjonalności
-
-* **Obsługa wariantów ortografii z YAML:** Ładuje definicje wariantów z katalogu `nopl_config/` (oraz wbudowaną domyślną konfigurację)[cite: 17].
-* **Jednoprzebiegowy silnik reguł (Master-Regex):** Łączy zaawansowane reguły wyrażeń regularnych (`regex_patterns`) ze słownikiem zamian prostych (`rules`), gwarantując priorytet wyjątkom phonotaktycznym[cite: 17].
-* **Pamięć powrotna (Cache kolizji):** Podczas konwersji z flagą `-r` tworzy pliki w katalogu `nopl_cache/`, zapisując słowa stanowiące dwuznaczności, co gwarantuje 100% bezstratną rekonstrukcję oryginału[cite: 17].
-* **Metadane w nagłówkach:** Automatycznie wstawia oraz odczytuje nagłówki YAML (np. `nopl_variant: zero`) w przetwarzanych plikach, ułatwiając ich automatyczne odkodowanie[cite: 17].
-
-#### Szybki start (Przykłady użycia)
-
-```bash
-# 1. Konwersja pliku domyślnym wariantem (-a)
-./nopl.py plik.txt
-
-# 2. Konwersja z wygenerowaniem pamięci powrotnej (cache kolizji)
-./nopl.py -a -r plik.txt
-
-# 3. Konwersja wybranym wariantem (np. -b / --aupl)
-./nopl.py -b plik.txt
-
-# 4. Automatyczna translacja powrotna z NOPL na PL
-./nopl.py -r plik.zero.txt
-
-# 5. Wyświetlenie listy dostępnych ortografii
-./nopl.py --list
-
-```
 
 ## Jak to się stało
 
